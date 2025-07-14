@@ -1,0 +1,22 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+body {
+  font-family: "Poiret One";
+}
+
+.andres {
+  /* background: linear-gradient(to right, #81d1e5 0%,#8de3e7 18%,#85c7e5 31%,#83c3e5 33%,#6769df 50%,#8839cd 76%,#d55396 100%); */
+  background:
+    linear-gradient(to right, #00c3ff 10%, #00a2ff 40%, #9b65c8 100%);
+}
+.texto-sombra {
+  text-shadow: 1px 1px 1px #434040;
+}
