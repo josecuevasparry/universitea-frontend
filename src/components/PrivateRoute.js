@@ -1,19 +1,22 @@
 import { Navigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
-// const PrivateRoute = ({ children }) => {
-//   const { currentUser } = useAuth();
+const PrivateRoute = ({ children, adminOnly = false }) => {
+  const { user, loading } = useAuth();
 
-//   if (!currentUser) {
-//     return <Navigate to="/login" replace />;
-//   }
+  if (loading) {
+    return <div className="flex justify-center p-8">Cargando...</div>;
+  }
 
-//   return children;
-// };
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
 
-const PrivateRoute = ({ children }) => {
-  const { currentUser } = useAuth();
-  return currentUser ? children : <Navigate to="/login" replace />;
+  if (adminOnly && user.role !== 'admin') {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
 };
 
-export default PrivateRoute; // Make sure this is default export
+export default PrivateRoute;

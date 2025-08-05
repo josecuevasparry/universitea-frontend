@@ -1,78 +1,77 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './components/Layout';
-import Login from './pages/Auth/Login';
-import Register from './pages/Auth/Register';
-import ActivityList from './pages/Activities/ActivityList';
-import ActivityForm from './pages/Activities/ActivityForm';
-import ActivityDetail from './pages/Activities/ActivityDetail';
-import ModuleList from './pages/Modules/ModuleList';
-import ModuleForm from './pages/Modules/ModuleForm';
-// import ModuleEdit from './pages/Modules/ModuleEdit';
-import DocenteList from './pages/Docentes/DocenteList';
-import DocenteForm from './pages/Docentes/DocenteForm'
-import DocenteDetail from './pages/Docentes/DocenteDetail';
-import DocenteEdit from './pages/Docentes/DocenteEdit';
-import ParticipantList from './pages/Participants/ParticipantList';
-import ErrorBoundary from './components/ErrorBoundary';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import './tailwind.css';
+
+// Layout Components
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+// Page Components
+import HomePage from './pages/HomePage';
+import ActivitiesPage from './pages/ActivitiesPage';
+import ActivityDetail from './pages/ActivityDetail';
+import DocentesPage from './pages/DocentesPage';
+import DocenteDetail from './pages/DocenteDetail';
+import ModulesPage from './pages/ModulesPage';
+import ModuleDetail from './pages/ModuleDetail';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import AdminPanel from './pages/AdminPanel';
+import AdminActivities from './pages/AdminActivities';
+import AdminDocentes from './pages/AdminDocentes';
+import AdminModules from './pages/AdminModules';
+
+// Context
+import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
-import Dashboard from './pages/Dashboard/Dashboard';
-import "@fontsource/poiret-one"; // Defaults to weight 400
-
-
 
 function App() {
   return (
-    <ErrorBoundary
-      fallback={({ error, resetError }) => (
-        <div>
-          <h1>An error occurred</h1>
-          <p>{error?.message}</p>
-          <button onClick={resetError}>Try again</button>
+    <BrowserRouter>
+      <AuthProvider>
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow container mx-auto px-4 py-8">
+            <Toaster position="top-right" />
+            <Routes>
+              {/* Public Routes */}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/activities" element={<ActivitiesPage />} />
+              <Route path="/activities/:id" element={<ActivityDetail />} />
+              <Route path="/docentes" element={<DocentesPage />} />
+              <Route path="/docentes/:id" element={<DocenteDetail />} />
+              <Route path="/modules" element={<ModulesPage />} />
+              <Route path="/modules/:id" element={<ModuleDetail />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+
+              {/* Admin Protected Routes */}
+              <Route path="/admin" element={
+                <PrivateRoute>
+                  <AdminPanel />
+                </PrivateRoute>
+              } />
+              <Route path="/admin/activities" element={
+                <PrivateRoute>
+                  <AdminActivities />
+                </PrivateRoute>
+              } />
+              <Route path="/admin/docentes" element={
+                <PrivateRoute>
+                  <AdminDocentes />
+                </PrivateRoute>
+              } />
+              <Route path="/admin/modules" element={
+                <PrivateRoute>
+                  <AdminModules />
+                </PrivateRoute>
+              } />
+            </Routes>
+          </main>
+          <Footer />
         </div>
-      )}
-    >
-      <Routes>
-
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-
-        {/* Protected routes */}
-        <Route element={<PrivateRoute><Layout /></PrivateRoute>}>
-          <Route path="/" element={<Navigate to="/dashboard" replace />}/>
-
-          <Route path="actividades">
-            <Route index element={<ActivityList />} />
-            <Route path="new" element={<ActivityForm />} />
-            <Route path=":id" element={<ActivityDetail />} />
-            <Route path=":id/edit" element={<ActivityForm editMode />} />
-          </Route>
-
-          <Route path="modulos">
-            <Route index element={<ModuleList />} />
-            <Route path="new" element={<ModuleForm />} />
-            {/* <Route path="/modulos/editar/:id" element={<ModuleEdit />} /> */}
-            
-          </Route>
-
-          <Route path="docentes">
-            <Route index element={<DocenteList />} />
-            <Route path='nuevo' element={<DocenteForm />} />
-            <Route path=":id" element={<DocenteDetail />} />
-            <Route path="/docentes/editar/:id" element={<DocenteEdit />} />
-          </Route>
-
-          <Route path="participantes" element={<ParticipantList />} />
-          <Route path="dashboard" element={<Dashboard />} />
-
-          <Route path="/modules" element={<ModuleList />} />
-
-
-        </Route>
-
-
-      </Routes>
-
-    </ErrorBoundary>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
