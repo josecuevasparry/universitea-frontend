@@ -13,7 +13,7 @@ const DocenteDetail = () => {
       try {
         const [docenteRes, modulesRes] = await Promise.all([
           api.get(`/api/docentes/${id}`),
-          api.get(`/api/docentes/${id}/modules`)
+          api.get(`/api/docentes/${id}/modulos`)
         ]);
         setDocente(docenteRes.data);
         setModules(modulesRes.data);
@@ -37,7 +37,7 @@ const DocenteDetail = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="bg-purple-100 rounded-lg shadow-md overflow-hidden">
         <div className="md:flex">
           {docente.image && (
             <div className="md:w-1/3">
@@ -70,10 +70,10 @@ const DocenteDetail = () => {
         {modules.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {modules.map(modulo => (
-              <div key={modulo.CODMODULO} className="bg-white p-4 rounded shadow">
+              <div key={modulo.CODMODULO} className="bg-purple-100 p-4 rounded shadow">
                 <h3 className="font-semibold">{modulo.NOMMODULO}</h3>
                 <Link 
-                  to={`/modules/${modulo.CODMODULO}`}
+                  to={`/modulos/${modulo.CODMODULO}`}
                   className="text-blue-600 hover:text-blue-800 text-sm"
                 >
                   Ver módulo

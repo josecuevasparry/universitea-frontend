@@ -3,9 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import { toast } from 'react-hot-toast';
 
-const LoginPage = () => {
+const RegisterPage = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [mobile, setMobile] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -14,20 +16,11 @@ const LoginPage = () => {
     setLoading(true);
     
     try {
-      const response = await api.post('/api/auth/login', { email, password });
-      
-      localStorage.setItem('token', response.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-      toast.success('Inicio de sesión exitoso');
-      
-      // Redirect based on user role
-      if (response.data.user.role === 'admin') {
-        navigate('/admin');
-      } else {
-        navigate('/');
-      }
+      await api.post('/api/auth/register', { name, email, password, mobile });
+      toast.success('Registro exitoso. Por favor inicia sesión.');
+      navigate('/login');
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Error al iniciar sesión');
+      toast.error(error.response?.data?.message || 'Error al registrarse');
     } finally {
       setLoading(false);
     }
@@ -36,9 +29,21 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-purple-50">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold text-violet-800 mb-6 text-center">Iniciar Sesión</h1>
+        <h1 className="text-2xl font-bold text-violet-800 mb-6 text-center">Crear Cuenta</h1>
         
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-gray-700 mb-1">Nombre Completo</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+              required
+            />
+          </div>
+          
           <div>
             <label htmlFor="email" className="block text-gray-700 mb-1">Correo Electrónico</label>
             <input
@@ -63,20 +68,32 @@ const LoginPage = () => {
             />
           </div>
           
+          <div>
+            <label htmlFor="mobile" className="block text-gray-700 mb-1">Teléfono</label>
+            <input
+              type="tel"
+              id="mobile"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+              required
+            />
+          </div>
+          
           <button
             type="submit"
             disabled={loading}
             className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50"
           >
-            {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
+            {loading ? 'Registrando...' : 'Registrarse'}
           </button>
         </form>
         
         <div className="mt-6 text-center">
           <p className="text-gray-600">
-            ¿No tienes una cuenta?{' '}
-            <Link to="/registro" className="text-violet-600 hover:underline">
-              Regístrate aquí
+            ¿Ya tienes una cuenta?{' '}
+            <Link to="/login" className="text-violet-600 hover:underline">
+              Inicia sesión aquí
             </Link>
           </p>
         </div>
@@ -85,4 +102,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

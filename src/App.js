@@ -1,77 +1,172 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-import './tailwind.css';
-
-// Layout Components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-
-// Page Components
-import HomePage from './pages/HomePage';
-import ActivitiesPage from './pages/ActivitiesPage';
-import ActivityDetail from './pages/ActivityDetail';
-import DocentesPage from './pages/DocentesPage';
-import DocenteDetail from './pages/DocenteDetail';
-import ModulesPage from './pages/ModulesPage';
-import ModuleDetail from './pages/ModuleDetail';
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
-import AdminPanel from './pages/AdminPanel';
-import AdminActivities from './pages/AdminActivities';
-import AdminDocentes from './pages/AdminDocentes';
-import AdminModules from './pages/AdminModules';
-
-// Context
-import { AuthProvider } from './context/AuthContext';
-import PrivateRoute from './components/PrivateRoute';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./index.css"; // or './App.css'
+import AdminRoute from "./components/AdminRoute";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminActivities from "./pages/admin/AdminActivities";
+import ActivityForm from "./pages/admin/ActivityForm";
+import AdminModules from "./pages/admin/AdminModules";
+import AdminTeachers from "./pages/admin/AdminTeachers";
+import AdminUsers from "./pages/admin/AdminUsers";
+import ModuleForm from "./pages/admin/ModuleForm";
+import TeacherForm from "./pages/admin/TeacherForm";
+import UserForm from "./pages/admin/UserForm";
+import HomePage from "./pages/HomePage";
+import ActivitiesPage from "./pages/ActivitiesPage";
+import ActivityDetailPage from "./pages/ActivityDetailPage";
+import ModulesPage from "./pages/ModulosPage";
+import ModuleDetailPage from "./pages/ModuleDetailPage";
+import TeachersPage from "./pages/DocentesPage";
+import TeacherDetailPage from "./pages/TeacherDetailPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import ProfilePage from "./pages/ProfilePage";
+// import AdminPanelPage from "./pages/AdminPanelPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow container mx-auto px-4 py-8">
-            <Toaster position="top-right" />
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<HomePage />} />
-              <Route path="/activities" element={<ActivitiesPage />} />
-              <Route path="/activities/:id" element={<ActivityDetail />} />
-              <Route path="/docentes" element={<DocentesPage />} />
-              <Route path="/docentes/:id" element={<DocenteDetail />} />
-              <Route path="/modules" element={<ModulesPage />} />
-              <Route path="/modules/:id" element={<ModuleDetail />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/signup" element={<SignupPage />} />
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/actividades" element={<ActivitiesPage />} />
+            <Route path="/actividades/:id" element={<ActivityDetailPage />} />
+            <Route path="/modulos" element={<ModulesPage />} />
+            <Route path="/modulos/:id" element={<ModuleDetailPage />} />
+            <Route path="/docentes" element={<TeachersPage />} />
+            <Route path="/docentes/:id" element={<TeacherDetailPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/registro" element={<RegisterPage />} />
+            
+            {/* Protected Routes */}
+            <Route
+              path="/perfil"
+              element={
+                <PrivateRoute>
+                  <ProfilePage />
+                </PrivateRoute>
+              }
+            />
 
-              {/* Admin Protected Routes */}
-              <Route path="/admin" element={
-                <PrivateRoute>
-                  <AdminPanel />
-                </PrivateRoute>
-              } />
-              <Route path="/admin/activities" element={
-                <PrivateRoute>
+            {/* Admin Routes */}
+            <Route
+              path="/admin"
+              element={
+                <AdminRoute>
+                  <AdminDashboard />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/actividades"
+              element={
+                <AdminRoute>
                   <AdminActivities />
-                </PrivateRoute>
-              } />
-              <Route path="/admin/docentes" element={
-                <PrivateRoute>
-                  <AdminDocentes />
-                </PrivateRoute>
-              } />
-              <Route path="/admin/modules" element={
-                <PrivateRoute>
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/actividades/nueva"
+              element={
+                <AdminRoute>
+                  <ActivityForm />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/actividades/editar/:id"
+              element={
+                <AdminRoute>
+                  <ActivityForm />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/modulos"
+              element={
+                <AdminRoute>
                   <AdminModules />
-                </PrivateRoute>
-              } />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </AuthProvider>
-    </BrowserRouter>
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/modulos/nuevo"
+              element={
+                <AdminRoute>
+                  <ModuleForm />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/modulos/editar/:id"
+              element={
+                <AdminRoute>
+                  <ModuleForm />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/docentes"
+              element={
+                <AdminRoute>
+                  <AdminTeachers />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/docentes/nuevo"
+              element={
+                <AdminRoute>
+                  <TeacherForm />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/docentes/editar/:id"
+              element={
+                <AdminRoute>
+                  <TeacherForm />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/usuarios"
+              element={
+                <AdminRoute>
+                  <AdminUsers />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/usuarios/nuevo"
+              element={
+                <AdminRoute>
+                  <UserForm />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/usuarios/editar/:id"
+              element={
+                <AdminRoute>
+                  <UserForm />
+                </AdminRoute>
+              }
+            />
+
+            {/* 404 page */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

@@ -21,9 +21,8 @@ const AdminModules = () => {
         setLoading(false);
       }
     };
-
     fetchModules();
-  }, []);
+  }, [modules]);
 
   const handleSubmit = async (formData) => {
     try {
@@ -71,14 +70,14 @@ const AdminModules = () => {
             setCurrentModule(null);
             setShowForm(true);
           }}
-          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
         >
           Nuevo Módulo
         </button>
       </div>
       
       {showForm && (
-        <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+        <div className="bg-purple-100 p-6 rounded-lg shadow-md mb-6">
           <ModuleForm 
             module={currentModule}
             onSubmit={handleSubmit}
@@ -96,7 +95,7 @@ const AdminModules = () => {
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white">
+          <table className="min-w-full bg-purple-100">
             <thead>
               <tr className="bg-gray-200 text-gray-700">
                 <th className="py-3 px-4 text-left">Nombre</th>
@@ -107,12 +106,12 @@ const AdminModules = () => {
             </thead>
             <tbody className="divide-y divide-gray-200">
               {modules.map(modulo => (
-                <tr key={modulo.CODMODULO} className="hover:bg-gray-50">
+                <tr key={modulo.CODMODULO} className="hover:bg-purple-600">
                   <td className="py-3 px-4">{modulo.NOMMODULO}</td>
                   <td className="py-3 px-4">
                     {modulo.CODACTIVIDAD ? (
                       <Link 
-                        to={`/activities/${modulo.CODACTIVIDAD}`}
+                        to={`/actividades/${modulo.CODACTIVIDAD}`}
                         className="text-blue-600 hover:text-blue-800"
                       >
                         Ver actividad

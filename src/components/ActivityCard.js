@@ -1,23 +1,27 @@
+// components/ActivityCard.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 
 const ActivityCard = ({ activity }) => {
+  const getImageUrl = () => {
+    if (activity.image) return activity.image;
+    return `http://localhost:3000/imagenes/${activity.CODACTIVIDAD}.jpg`;
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
+    <div className="bg-purple-100 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
       <div className="relative h-48">
-        {activity.image ? (
-          <img 
-            src={activity.image} 
-            alt={activity.NOMACTIVIDAD} 
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-            <span className="text-gray-500">No image</span>
-          </div>
-        )}
+        <img 
+          src={getImageUrl()} 
+          alt={activity.NOMACTIVIDAD} 
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            e.target.src = "http://localhost:3000/imagenes/actividades/"+activity.CODACTIVIDAD+".jpg"
+            e.target.onerror = null; // Prevent infinite loop
+          }}
+        />
       </div>
       <div className="p-4">
         <h3 className="text-xl font-semibold mb-2 text-gray-800">
@@ -35,8 +39,8 @@ const ActivityCard = ({ activity }) => {
           </span>
         </div>
         <Link 
-          to={`/activities/${activity._id}`}
-          className="inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+          to={`/actividades/${activity.CODACTIVIDAD}`}
+          className="inline-block px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
         >
           Ver detalles
         </Link>

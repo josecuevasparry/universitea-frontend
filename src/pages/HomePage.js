@@ -1,48 +1,60 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { useEffect } from 'react';
+// pages/HomePage.js
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import api from '../services/api';
+import { toast } from 'react-hot-toast';
+import ActivitiesList from '../components/ActivitiesList';
 
 const HomePage = () => {
-  const { user } = useAuth();
-  const navigate = useNavigate();
+  const [activities, setActivities] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Redirect if already logged in
-    if (user) {
-      if (user.role === 'admin') {
-        navigate('/admin/activities');
-      } else {
-        navigate('/activities');
+    const fetchActivities = async () => {
+      try {
+        const response = await api.get('/api/actividades/');
+        setActivities(response.data);
+      } catch (error) {
+        toast.error('Error al cargar actividades');
+        console.error('Error fetching activities:', error);
+      } finally {
+        setLoading(false);
       }
-    }
-  }, [user, navigate]);
+    };
+
+    fetchActivities();
+  }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-      <div className="max-w-2xl text-center p-8 bg-white rounded-lg shadow-md">
-        <h1 className="text-4xl font-bold mb-6 text-blue-700">Bienvenido a Universitea</h1>
-        <p className="text-lg text-gray-600 mb-8">Plataforma de gestión de actividades educativas</p>
-        
-        {!user && (
+    <div className="min-h-screen">
+      <div className="container  mx-auto px-4 py-8 rounded-md shadow-md">
+        <ActivitiesList 
+          activities={activities} 
+          loading={loading}
+          title="Próximamente en Universitea"
+          description="Explora nuestras actividades de aprendizaje"
+        />
+        {/* Login/Register Section */}
+        <div className="hidden mt-12 bg-purple-100 rounded-lg shadow-md p-8 max-w-md mx-auto text-center">
+          <h2 className="text-2xl font-bold mb-4">¿Estás inscrito?</h2>
           <div className="space-y-4">
             <Link
               to="/login"
-              className="inline-block w-64 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-md"
+              className="inline-block w-full px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors shadow-md"
             >
               Iniciar sesión
             </Link>
             <p className="text-gray-500">o</p>
             <Link
               to="/signup"
-              className="inline-block w-64 px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors"
+              className="inline-block w-full px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-purple-50 transition-colors"
             >
               Registrarse
             </Link>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
 };
-
 export default HomePage;

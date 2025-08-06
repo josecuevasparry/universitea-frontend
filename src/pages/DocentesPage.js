@@ -23,7 +23,7 @@ const DocentesPage = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Listado de Docentes</h1>
+      <h1 className="text-2xl font-bold mb-6">Nuestros Docentes</h1>
       
       {loading ? (
         <div className="flex justify-center">
@@ -32,7 +32,7 @@ const DocentesPage = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {docentes.map(docente => (
-            <div key={docente.CODDOCENTE} className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div key={docente.CODDOCENTE} className="bg-purple-100 rounded-lg shadow-md overflow-hidden">
               {docente.image && (
                 <img 
                   src={docente.image} 

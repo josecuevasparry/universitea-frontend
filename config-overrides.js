@@ -1,29 +1,17 @@
-module.exports = function override(config, env) {
-  // Add Tailwind CSS support
-  const tailwindRules = {
-    test: /\.css$/,
-    use: [
-      'style-loader',
-      'css-loader',
-      {
-        loader: 'postcss-loader',
-        options: {
-          postcssOptions: {
-            plugins: [
-              require('tailwindcss'),
-              require('autoprefixer'),
-            ],
-          },
-        },
-      },
-    ],
-  };
+const { override, adjustStyleLoaders } = require('customize-cra');
 
-  // Find the existing CSS rule and replace it
-  const rules = config.module.rules.find(rule => Array.isArray(rule.oneOf)).oneOf;
-  const cssRuleIndex = rules.findIndex(rule => rule.test && rule.test.toString().includes('css'));
-  
-  rules.splice(cssRuleIndex, 1, tailwindRules);
-
-  return config;
-};
+module.exports = override(
+  adjustStyleLoaders(({ use: [, css, postcss, resolve, processor] }) => {
+    css.options.sourceMap = true;         // css-loader
+    postcss.options.sourceMap = true;     // postcss-loader
+    // when enable pre-processor,
+    // resolve-url-loader will be enabled too
+    if (resolve) {
+      resolve.options.sourceMap = true;   // resolve-url-loader
+    }
+    // pre-processor
+    if (processor && processor.loader.includes('sass-loader')) {
+      processor.options.sourceMap = true;  // sass-loader
+    }
+  })
+);

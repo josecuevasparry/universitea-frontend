@@ -1,16 +1,15 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AdminPanel = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+      <div className="max-w-4xl mx-auto bg-purple-100 rounded-lg shadow-md p-6">
         <h1 className="text-3xl font-bold text-gray-800 mb-8">Panel de Administración</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Link 
-            to="/admin/activities" 
-            className="bg-blue-100 p-6 rounded-lg hover:bg-blue-200 transition-colors"
+            to="/admin/actividades" 
+            className="bg-purple-100 p-6 rounded-lg hover:bg-purple-200 transition-colors"
           >
             <h2 className="text-xl font-semibold text-blue-800 mb-2">Actividades</h2>
             <p className="text-blue-600">Administrar todas las actividades</p>
@@ -25,7 +24,7 @@ const AdminPanel = () => {
           </Link>
           
           <Link 
-            to="/admin/modules" 
+            to="/admin/modulos" 
             className="bg-purple-100 p-6 rounded-lg hover:bg-purple-200 transition-colors"
           >
             <h2 className="text-xl font-semibold text-purple-800 mb-2">Módulos</h2>

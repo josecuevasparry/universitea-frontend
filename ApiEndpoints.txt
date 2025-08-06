@@ -1,0 +1,53 @@
+API Endpoints
+Authentication
+POST /api/auth/register - Register a new user
+
+POST /api/auth/login - Login and get JWT token
+
+GET /api/auth/profile - Get user profile (requires authentication)
+
+Actividades
+GET /api/actividades - Get all actividades
+
+GET /api/actividades/:id - Get a single actividad
+
+POST /api/actividades - Create a new actividad (admin only)
+
+PUT /api/actividades/:id - Update an actividad (admin only)
+
+DELETE /api/actividades/:id - Delete an actividad (admin only)
+
+Docentes
+GET /api/docentes - Get all docentes
+
+GET /api/docentes/:id - Get a single docente
+
+POST /api/docentes - Create a new docente (admin only)
+
+PUT /api/docentes/:id - Update a docente (admin only)
+
+DELETE /api/docentes/:id - Delete a docente (admin only)
+
+Modact (Module-Activity relationships)
+GET /api/modact - Get all module-activity relationships
+
+GET /api/modact/:id - Get a single relationship
+
+GET /api/modact/modulo/:idModulo - Get relationships by module
+
+GET /api/modact/actividad/:idActividad - Get relationships by activity
+
+POST /api/modact - Create a new relationship (admin only)
+
+DELETE /api/modact/:id - Delete a relationship (admin only)
+
+Modulos
+GET /api/modulos - Get all modulos
+
+GET /api/modulos/:id - Get a single modulo
+
+POST /api/modulos - Create a new modulo (admin only)
+
+PUT /api/modulos/:id - Update a modulo (admin only)
+
+DELETE /api/modulos/:id - Delete a modulo (admin only)

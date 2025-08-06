@@ -20,14 +20,12 @@ const AdminDocentes = () => {
         setLoading(false);
       }
     };
-
     fetchDocentes();
-  }, []);
+  }, [docentes]);
 
   const handleSubmit = async (formData) => {
     try {
       let response;
-      
       if (currentDocente) {
         // Update
         response = await api.put(`/api/docentes/${currentDocente.CODDOCENTE}`, formData);
@@ -70,14 +68,14 @@ const AdminDocentes = () => {
             setCurrentDocente(null);
             setShowForm(true);
           }}
-          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
         >
           Nuevo Docente
         </button>
       </div>
       
       {showForm && (
-        <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+        <div className="bg-purple-100 p-6 rounded-lg shadow-md mb-6">
           <DocenteForm 
             docente={currentDocente}
             onSubmit={handleSubmit}
@@ -95,7 +93,7 @@ const AdminDocentes = () => {
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white">
+          <table className="min-w-full bg-purple-100">
             <thead>
               <tr className="bg-gray-200 text-gray-700">
                 <th className="py-3 px-4 text-left">Nombre</th>
@@ -105,8 +103,8 @@ const AdminDocentes = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {docentes.map(docente => (
-                <tr key={docente.CODDOCENTE} className="hover:bg-gray-50">
+              {docentes.map((docente,index) => (
+                <tr key={docente.CODDOCENTE || `docente-${index}`} className="hover:bg-purple-600">
                   <td className="py-3 px-4">{docente.NOMDOCENTE}</td>
                   <td className="py-3 px-4">{docente.ESPECIALIDAD}</td>
                   <td className="py-3 px-4">{docente.EMAIL}</td>
