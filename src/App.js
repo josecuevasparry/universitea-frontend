@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css"; // or './App.css'
 import AdminRoute from "./components/AdminRoute";
-import AdminDashboard from "./pages/admin/AdminDashboard";
+// import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminActivities from "./pages/admin/AdminActivities";
 import ActivityForm from "./pages/admin/ActivityForm";
 import AdminModules from "./pages/admin/AdminModules";
@@ -20,7 +20,7 @@ import TeacherDetailPage from "./pages/TeacherDetailPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProfilePage from "./pages/ProfilePage";
-// import AdminPanelPage from "./pages/AdminPanelPage";
+import AdminPanelPage from "./pages/AdminPanelPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -59,7 +59,7 @@ function App() {
               path="/admin"
               element={
                 <AdminRoute>
-                  <AdminDashboard />
+                  <AdminPanelPage />
                 </AdminRoute>
               }
             />
@@ -159,7 +159,6 @@ function App() {
                 </AdminRoute>
               }
             />
-
             {/* 404 page */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

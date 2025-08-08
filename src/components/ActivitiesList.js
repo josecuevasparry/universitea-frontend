@@ -16,13 +16,11 @@ const ActivitiesList = ({ activities, loading, title = "Próximas Actividades", 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {displayedActivities.map((activity) => (
           <div key={activity.CODACTIVIDAD} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            {activity.image && (
               <img 
-                src={`/uploads/${activity.image}`} 
+                src={'/imagenes/actividades/'+activity.CODACTIVIDAD+'.jpg'}
                 alt={activity.NOMACTIVIDAD} 
                 className="w-full h-48 object-cover"
               />
-            )}
             <div className="p-6">
               <h3 className="text-xl font-bold text-violet-700 mb-2">{activity.NOMACTIVIDAD}</h3>
               <p className="text-gray-500 text-sm mb-3">
