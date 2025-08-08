@@ -79,8 +79,10 @@ const Navbar = () => {
             to="/"
             className="text-2xl font-bold hover:text-purple-200 transition-colors"
           >
-            <img src="/universitea.png" alt="Logo" className="w-40 " />
-            <img src="/caminantes.png" alt="caminantes" />
+            <div>
+              <img src="/universitea.png" alt="Logo" className="w-40 " />
+              <img src="/caminantes.png" alt="caminantes" className="w-20" />
+            </div>
           </Link>
 
           {/* Hamburger Menu Button (visible on small screens) */}
