@@ -79,9 +79,9 @@ const Navbar = () => {
             to="/"
             className="text-2xl font-bold hover:text-purple-200 transition-colors"
           >
-            <div>
-              <img src="/universitea.png" alt="Logo" className="w-40 " />
-              <img src="/caminantes.png" alt="caminantes" className="w-20" />
+            <div className="flex items-center space-x-2">
+              <img src="/universitea.png" alt="Logo" className="w-40" />
+              <img src="/caminantes.png" alt="caminantes" className="w-12" />
             </div>
           </Link>
 
