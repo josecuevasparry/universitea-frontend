@@ -86,14 +86,14 @@ const ActivityForm = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-violet-800 mb-8">
+        <h1 className="text-3xl font-bold text-blue-800 mb-8">
           {id ? 'Editar Actividad' : 'Nueva Actividad'}
         </h1>
         
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-gray-700 mb-2">Nombre</label>
+              <label className="block text-blue-700 mb-2">Nombre</label>
               <input
                 type="text"
                 className="w-full p-2 border rounded-lg"
@@ -104,7 +104,7 @@ const ActivityForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Fecha</label>
+              <label className="block text-blue-700 mb-2">Fecha</label>
               <input
                 type="date"
                 className="w-full p-2 border rounded-lg"
@@ -115,7 +115,7 @@ const ActivityForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Descripción Corta</label>
+              <label className="block text-blue-700 mb-2">Descripción Corta</label>
               <input
                 type="text"
                 className="w-full p-2 border rounded-lg"
@@ -126,7 +126,7 @@ const ActivityForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Tipo</label>
+              <label className="block text-blue-700 mb-2">Tipo</label>
               <select
                 className="w-full p-2 border rounded-lg"
                 value={formData.TIPACTIVIDAD}
@@ -141,7 +141,7 @@ const ActivityForm = () => {
             </div>
             
             <div className="md:col-span-2">
-              <label className="block text-gray-700 mb-2">Descripción Completa</label>
+              <label className="block text-blue-700 mb-2">Descripción Completa</label>
               <textarea
                 className="w-full p-2 border rounded-lg"
                 rows="4"
@@ -174,7 +174,7 @@ const ActivityForm = () => {
             </div>
             
             <div className="md:col-span-2">
-              <label className="block text-gray-700 mb-2">Imagen</label>
+              <label className="block text-blue-700 mb-2">Imagen</label>
               <input
                 type="file"
                 accept="image/*"
@@ -190,7 +190,7 @@ const ActivityForm = () => {
             </div>
             
             <div className="md:col-span-2">
-              <label className="block text-gray-700 mb-2">Módulos Relacionados</label>
+              <label className="block text-blue-700 mb-2">Módulos Relacionados</label>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                 {modules.map(module => (
                   <label key={module.CODMODULO} className="flex items-center space-x-2">
@@ -217,7 +217,7 @@ const ActivityForm = () => {
             <button
               type="submit"
               disabled={loading}
-              className="px-4 py-2 bg-violet-600 text-white rounded-lg hover:bg-violet-700 disabled:opacity-50"
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
             >
               {loading ? 'Guardando...' : 'Guardar'}
             </button>

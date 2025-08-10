@@ -31,7 +31,7 @@ const ActivityDetailPage = () => {
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 rounded-md shadow-md">
         <div className="mb-6">
-          <Link to="/actividades" className="text-violet-600 hover:underline">
+          <Link to="/actividades" className="text-blue-600 hover:underline">
             &larr; Volver a actividades
           </Link>
         </div>
@@ -46,21 +46,21 @@ const ActivityDetailPage = () => {
           )}
           
           <div className="p-6">
-            <h1 className="text-3xl font-bold text-violet-800 mb-2">{activity.NOMACTIVIDAD}</h1>
-            <p className="text-gray-500 mb-4">{new Date(activity.FECACTIVIDAD).toLocaleDateString()}</p>
-            <p className="text-lg mb-4">{activity.SHORTDESCRIPTION}</p>
-            <div className="bg-purple-50 p-4 rounded-lg mb-6">
-              <h2 className="text-xl font-semibold text-violet-700 mb-2">Descripción</h2>
-              <p className="text-gray-700">{activity.DESCRIPCION}</p>
+            <h1 className="text-3xl font-bold text-blue-800 mb-2">{activity.NOMACTIVIDAD}</h1>
+            <p className="text-blue-500 mb-4">{new Date(activity.FECACTIVIDAD).toLocaleDateString()}</p>
+            <p className="text-lg mb-4">{activity.SHORTDESCRIPTION} hola</p>
+            <div className="bg-blue-50 p-4 rounded-lg mb-6">
+              <h2 className="text-xl font-semibold text-blue-700 mb-2">Descripción</h2>
+              <p className="text-blue-700">{activity.DESCRIPCION}</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <h3 className="font-semibold text-violet-700">Tipo de Actividad</h3>
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h3 className="font-semibold text-blue-700">Tipo de Actividad</h3>
                 <p>{activity.TIPACTIVIDAD}</p>
               </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <h3 className="font-semibold text-violet-700">Certificado</h3>
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h3 className="font-semibold text-blue-700">Certificado</h3>
                 <p>{activity.CERTIFICADO ? 'Sí' : 'No'}</p>
               </div>
             </div>

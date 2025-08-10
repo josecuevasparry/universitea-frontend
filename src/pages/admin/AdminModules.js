@@ -42,10 +42,10 @@ const AdminModules = () => {
     <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-violet-800">Gestión de Módulos</h1>
+          <h1 className="text-3xl font-bold text-blue-800">Gestión de Módulos</h1>
           <Link 
             to="/admin/modulos/nuevo" 
-            className="bg-violet-600 text-white px-4 py-2 rounded-lg hover:bg-violet-700"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
           >
             Nuevo Módulo
           </Link>
@@ -66,7 +66,7 @@ const AdminModules = () => {
         ) : (
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <table className="min-w-full">
-              <thead className="bg-violet-100">
+              <thead className="bg-blue-100">
                 <tr>
                   <th className="px-6 py-3 text-left">Nombre</th>
                   <th className="px-6 py-3 text-left">Contenidos</th>
@@ -93,7 +93,7 @@ const AdminModules = () => {
                       </Link>
                       <button
                         onClick={() => toggleArchive(module.CODMODULO, module.archived)}
-                        className="text-violet-600 hover:underline"
+                        className="text-blue-600 hover:underline"
                       >
                         {module.archived ? 'Activar' : 'Archivar'}
                       </button>

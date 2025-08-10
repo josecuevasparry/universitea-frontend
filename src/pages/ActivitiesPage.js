@@ -27,7 +27,7 @@ const ActivitiesPage = () => {
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 rounded-md shadow-md">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-violet-800">Nuestras Actividades</h1>
+          <h1 className="text-3xl font-bold text-blue-800">Nuestras Actividades</h1>
         </div>
         <ActivitiesList 
           activities={activities} 

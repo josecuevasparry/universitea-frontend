@@ -12,20 +12,20 @@ const ActivityTable = ({ activities, onView, onEdit, onArchive }) => {
       <table className="min-w-full">
         <thead className="bg-gray-50">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Nombre</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Fecha</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Tipo</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Acciones</th>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
           {activities.map((activity) => (
             <tr key={activity.CODACTIVIDAD}>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm font-medium text-gray-900">{activity.NOMACTIVIDAD}</div>
+                <div className="text-md font-medium text-blue-900">{activity.NOMACTIVIDAD}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-500">
+                <div className="text-md text-blue-500">
                   {new Date(activity.FECACTIVIDAD).toLocaleDateString()}
                 </div>
               </td>
@@ -34,7 +34,7 @@ const ActivityTable = ({ activities, onView, onEdit, onArchive }) => {
                   {getActivityType(activity.TIPACTIVIDAD)}
                 </span>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <td className="px-6 py-4 whitespace-nowrap text-md font-medium">
                 <button
                   onClick={() => onView(activity.CODACTIVIDAD)}
                   className="text-blue-600 hover:text-blue-900 mr-4"

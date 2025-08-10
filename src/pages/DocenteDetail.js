@@ -37,20 +37,18 @@ const DocenteDetail = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="bg-purple-100 rounded-lg shadow-md overflow-hidden">
+      <div className="bg-blue-100 rounded-lg shadow-md overflow-hidden">
         <div className="md:flex">
-          {docente.image && (
             <div className="md:w-1/3">
               <img 
-                src={docente.image} 
+                src={"https://caminantes.cl/centro/images/guia/"+docente.CODDOCENTE+".jpg"} 
                 alt={docente.NOMDOCENTE} 
                 className="w-full h-full object-cover"
               />
             </div>
-          )}
           <div className="p-6 md:w-2/3">
             <h1 className="text-2xl font-bold mb-2">{docente.NOMDOCENTE}</h1>
-            <p className="text-gray-600 mb-4">{docente.ESPECIALIDAD}</p>
+            <p className="text-blue-600 mb-4">{docente.ESPECIALIDAD}</p>
             <div className="mb-4">
               <h2 className="text-lg font-semibold mb-2">Información de Contacto</h2>
               <p>Email: {docente.EMAIL}</p>
@@ -70,11 +68,11 @@ const DocenteDetail = () => {
         {modules.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {modules.map(modulo => (
-              <div key={modulo.CODMODULO} className="bg-purple-100 p-4 rounded shadow">
+              <div key={modulo.CODMODULO} className="bg-blue-100 p-4 rounded shadow">
                 <h3 className="font-semibold">{modulo.NOMMODULO}</h3>
                 <Link 
                   to={`/modulos/${modulo.CODMODULO}`}
-                  className="text-blue-600 hover:text-blue-800 text-sm"
+                  className="text-blue-600 hover:text-blue-800 text-md"
                 >
                   Ver módulo
                 </Link>

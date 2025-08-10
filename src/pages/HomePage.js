@@ -27,7 +27,7 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="container  mx-auto px-4 py-8 rounded-md shadow-md">
+      <div className="container  mx-auto px-4 font-semibold py-8 rounded-md shadow-md">
         <ActivitiesList 
           activities={activities} 
           loading={loading}
@@ -35,19 +35,19 @@ const HomePage = () => {
           description="Explora nuestras actividades de aprendizaje"
         />
         {/* Login/Register Section */}
-        <div className="hidden mt-12 bg-purple-100 rounded-lg shadow-md p-8 max-w-md mx-auto text-center">
+        <div className="hidden mt-12 bg-blue-100 rounded-lg shadow-md p-8 max-w-md mx-auto text-center">
           <h2 className="text-2xl font-bold mb-4">¿Estás inscrito?</h2>
           <div className="space-y-4">
             <Link
               to="/login"
-              className="inline-block w-full px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors shadow-md"
+              className="inline-block w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-md"
             >
               Iniciar sesión
             </Link>
-            <p className="text-gray-500">o</p>
+            <p className="text-blue-500">o</p>
             <Link
               to="/signup"
-              className="inline-block w-full px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-purple-50 transition-colors"
+              className="inline-block w-full px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors"
             >
               Registrarse
             </Link>

@@ -26,7 +26,7 @@ const ModulesPage = () => {
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 rounded-md shadow-md">
-        <h1 className="text-3xl font-bold text-violet-800 mb-8">Módulos de Aprendizaje</h1>
+        <h1 className="text-3xl font-bold text-blue-800 mb-8">Módulos de Aprendizaje</h1>
         
         {loading ? (
           <div className="flex justify-center">Cargando módulos...</div>
@@ -42,11 +42,11 @@ const ModulesPage = () => {
                   />
                 )}
                 <div className="p-6">
-                  <h2 className="text-xl font-bold text-violet-700 mb-2">{module.NOMMODULO}</h2>
-                  <p className="text-gray-600 mb-4 line-clamp-3">{module.CONTENIDOS}</p>
+                  <h2 className="text-xl font-bold text-blue-700 mb-2">{module.NOMMODULO}</h2>
+                  <p className="text-blue-600 mb-4 line-clamp-3">{module.CONTENIDOS}</p>
                   <Link 
                     to={`/modulos/${module.CODMODULO}`}
-                    className="inline-block px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                    className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                   >
                     Ver detalles
                   </Link>

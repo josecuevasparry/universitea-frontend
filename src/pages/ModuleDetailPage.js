@@ -50,7 +50,7 @@ const ModuleDetailPage = () => {
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 rounded-md shadow-md">
         <div className="mb-6">
-          <Link to="/modulos" className="text-violet-600 hover:underline">
+          <Link to="/modulos" className="text-blue-600 hover:underline">
             &larr; Volver a módulos
           </Link>
         </div>
@@ -65,16 +65,16 @@ const ModuleDetailPage = () => {
           )}
           
           <div className="p-6">
-            <h1 className="text-3xl font-bold text-violet-800 mb-2">{module.NOMMODULO}</h1>
+            <h1 className="text-3xl font-bold text-blue-800 mb-2">{module.NOMMODULO}</h1>
             
             <div className="mb-6">
-              <h2 className="text-xl font-semibold text-violet-700 mb-2">Contenidos</h2>
-              <p className="text-gray-700 whitespace-pre-line">{module.CONTENIDOS}</p>
+              <h2 className="text-xl font-semibold text-blue-700 mb-2">Contenidos</h2>
+              <p className="text-blue-700 whitespace-pre-line">{module.CONTENIDOS}</p>
             </div>
             
             {teacher && (
-              <div className="bg-purple-50 p-4 rounded-lg mb-6">
-                <h2 className="text-xl font-semibold text-violet-700 mb-2">Docente</h2>
+              <div className="bg-blue-50 p-4 rounded-lg mb-6">
+                <h2 className="text-xl font-semibold text-blue-700 mb-2">Docente</h2>
                 <div className="flex items-center">
                   {teacher.image && (
                     <img 
@@ -85,7 +85,7 @@ const ModuleDetailPage = () => {
                   )}
                   <div>
                     <h3 className="font-bold">{teacher.NOMDOCENTE}</h3>
-                    <p className="text-gray-600">{teacher.ESPECIALIDAD}</p>
+                    <p className="text-blue-600">{teacher.ESPECIALIDAD}</p>
                   </div>
                 </div>
               </div>
@@ -93,7 +93,7 @@ const ModuleDetailPage = () => {
             
             {activities.length > 0 && (
               <div>
-                <h2 className="text-xl font-semibold text-violet-700 mb-4">Actividades relacionadas</h2>
+                <h2 className="text-xl font-semibold text-blue-700 mb-4">Actividades relacionadas</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {activities.map((activity) => (
                     <Link 
@@ -101,11 +101,11 @@ const ModuleDetailPage = () => {
                       to={`/actividades/${activity.CODACTIVIDAD}`}
                       className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
                     >
-                      <h3 className="font-bold text-violet-700">{activity.NOMACTIVIDAD}</h3>
-                      <p className="text-gray-500 text-sm">
+                      <h3 className="font-bold text-blue-700">{activity.NOMACTIVIDAD}</h3>
+                      <p className="text-blue-500 text-md">
                         {new Date(activity.FECACTIVIDAD).toLocaleDateString()}
                       </p>
-                      <p className="text-gray-600 mt-2 line-clamp-2">{activity.SHORTDESCRIPTION}</p>
+                      <p className="text-blue-600 mt-2 line-clamp-2">{activity.SHORTDESCRIPTION}</p>
                     </Link>
                   ))}
                 </div>

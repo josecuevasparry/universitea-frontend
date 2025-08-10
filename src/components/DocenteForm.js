@@ -22,33 +22,33 @@ const DocenteForm = ({ docente, onSubmit, onCancel }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* NOMDOCENTE */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Nombre Completo</label>
+          <label className="block text-md font-medium text-blue-700">Nombre Completo</label>
           <input
             type="text"
             {...register('NOMDOCENTE', { required: 'Este campo es requerido' })}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
           {errors.NOMDOCENTE && (
-            <p className="mt-1 text-sm text-red-600">{errors.NOMDOCENTE.message}</p>
+            <p className="mt-1 text-md text-red-600">{errors.NOMDOCENTE.message}</p>
           )}
         </div>
 
         {/* ESPECIALIDAD */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Especialidad</label>
+          <label className="block text-md font-medium text-blue-700">Especialidad</label>
           <input
             type="text"
             {...register('ESPECIALIDAD', { required: 'Este campo es requerido' })}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
           {errors.ESPECIALIDAD && (
-            <p className="mt-1 text-sm text-red-600">{errors.ESPECIALIDAD.message}</p>
+            <p className="mt-1 text-md text-red-600">{errors.ESPECIALIDAD.message}</p>
           )}
         </div>
 
         {/* EMAIL */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Email</label>
+          <label className="block text-md font-medium text-blue-700">Email</label>
           <input
             type="email"
             {...register('EMAIL', { 
@@ -61,26 +61,26 @@ const DocenteForm = ({ docente, onSubmit, onCancel }) => {
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
           {errors.EMAIL && (
-            <p className="mt-1 text-sm text-red-600">{errors.EMAIL.message}</p>
+            <p className="mt-1 text-md text-red-600">{errors.EMAIL.message}</p>
           )}
         </div>
 
         {/* TELEFONO */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Teléfono</label>
+          <label className="block text-md font-medium text-blue-700">Teléfono</label>
           <input
             type="tel"
             {...register('TELEFONO', { required: 'Este campo es requerido' })}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
           {errors.TELEFONO && (
-            <p className="mt-1 text-sm text-red-600">{errors.TELEFONO.message}</p>
+            <p className="mt-1 text-md text-red-600">{errors.TELEFONO.message}</p>
           )}
         </div>
 
         {/* RUTDOCENTE */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">RUT</label>
+          <label className="block text-md font-medium text-blue-700">RUT</label>
           <input
             type="text"
             {...register('RUTDOCENTE', { required: 'Este campo es requerido' })}
@@ -88,14 +88,14 @@ const DocenteForm = ({ docente, onSubmit, onCancel }) => {
             placeholder="12345678-9"
           />
           {errors.RUTDOCENTE && (
-            <p className="mt-1 text-sm text-red-600">{errors.RUTDOCENTE.message}</p>
+            <p className="mt-1 text-md text-red-600">{errors.RUTDOCENTE.message}</p>
           )}
         </div>
       </div>
 
       {/* CVDOCENTE */}
       <div>
-        <label className="block text-sm font-medium text-gray-700">Curriculum</label>
+        <label className="block text-md font-medium text-blue-700">Curriculum</label>
         <textarea
           rows={6}
           {...register('CVDOCENTE')}
@@ -105,12 +105,12 @@ const DocenteForm = ({ docente, onSubmit, onCancel }) => {
 
       {/* Image Upload */}
       <div>
-        <label className="block text-sm font-medium text-gray-700">Foto del Docente</label>
+        <label className="block text-md font-medium text-blue-700">Foto del Docente</label>
         <input
           type="file"
           accept="image/*"
           {...register('image')}
-          className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-blue-700 hover:file:bg-purple-100"
+          className="mt-1 block w-full text-md text-blue-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-md file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
         />
       </div>
 
@@ -119,13 +119,13 @@ const DocenteForm = ({ docente, onSubmit, onCancel }) => {
         <button
           type="button"
           onClick={onCancel}
-          className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-purple-100 hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-md font-medium text-blue-700 bg-blue-100 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           Cancelar
         </button>
         <button
           type="submit"
-          className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="px-4 py-2 border border-transparent rounded-md shadow-sm text-md font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           {docente ? 'Actualizar Docente' : 'Guardar Docente'}
         </button>

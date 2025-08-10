@@ -39,20 +39,20 @@ const ModuleForm = ({ module, onSubmit, onCancel }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* NOMMODULO */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Nombre del Módulo</label>
+          <label className="block text-md font-medium text-blue-700">Nombre del Módulo</label>
           <input
             type="text"
             {...register('NOMMODULO', { required: 'Este campo es requerido' })}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
           {errors.NOMMODULO && (
-            <p className="mt-1 text-sm text-red-600">{errors.NOMMODULO.message}</p>
+            <p className="mt-1 text-md text-red-600">{errors.NOMMODULO.message}</p>
           )}
         </div>
 
         {/* CODDOCENTE */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Docente</label>
+          <label className="block text-md font-medium text-blue-700">Docente</label>
           <select
             {...register('CODDOCENTE')}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
@@ -68,7 +68,7 @@ const ModuleForm = ({ module, onSubmit, onCancel }) => {
 
         {/* CODACTIVIDAD */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Actividad</label>
+          <label className="block text-md font-medium text-blue-700">Actividad</label>
           <select
             {...register('CODACTIVIDAD')}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
@@ -85,25 +85,25 @@ const ModuleForm = ({ module, onSubmit, onCancel }) => {
 
       {/* CONTENIDOS */}
       <div>
-        <label className="block text-sm font-medium text-gray-700">Contenidos</label>
+        <label className="block text-md font-medium text-blue-700">Contenidos</label>
         <textarea
           rows={8}
           {...register('CONTENIDOS', { required: 'Este campo es requerido' })}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
         {errors.CONTENIDOS && (
-          <p className="mt-1 text-sm text-red-600">{errors.CONTENIDOS.message}</p>
+          <p className="mt-1 text-md text-red-600">{errors.CONTENIDOS.message}</p>
         )}
       </div>
 
       {/* Image Upload */}
       <div>
-        <label className="block text-sm font-medium text-gray-700">Imagen del Módulo</label>
+        <label className="block text-md font-medium text-blue-700">Imagen del Módulo</label>
         <input
           type="file"
           accept="image/*"
           {...register('image')}
-          className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-blue-700 hover:file:bg-purple-100"
+          className="mt-1 block w-full text-md text-blue-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-md file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
         />
       </div>
 
@@ -112,14 +112,14 @@ const ModuleForm = ({ module, onSubmit, onCancel }) => {
         <button
           type="button"
           onClick={onCancel}
-          className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-purple-100 hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-md font-medium text-blue-700 bg-blue-100 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           Cancelar
         </button>
         <button
           type="submit"
           disabled={loading}
-          className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-2 border border-transparent rounded-md shadow-sm text-md font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? 'Guardando...' : (module ? 'Actualizar Módulo' : 'Guardar Módulo')}
         </button>

@@ -59,14 +59,14 @@ const TeacherForm = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-violet-800 mb-8">
+        <h1 className="text-3xl font-bold text-blue-800 mb-8">
           {id ? 'Editar Docente' : 'Nuevo Docente'}
         </h1>
         
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-gray-700 mb-2">Nombre</label>
+              <label className="block text-blue-700 mb-2">Nombre</label>
               <input
                 type="text"
                 className="w-full p-2 border rounded-lg"
@@ -77,7 +77,7 @@ const TeacherForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">RUT</label>
+              <label className="block text-blue-700 mb-2">RUT</label>
               <input
                 type="text"
                 className="w-full p-2 border rounded-lg"
@@ -88,7 +88,7 @@ const TeacherForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Email</label>
+              <label className="block text-blue-700 mb-2">Email</label>
               <input
                 type="email"
                 className="w-full p-2 border rounded-lg"
@@ -99,7 +99,7 @@ const TeacherForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Teléfono</label>
+              <label className="block text-blue-700 mb-2">Teléfono</label>
               <input
                 type="tel"
                 className="w-full p-2 border rounded-lg"
@@ -110,7 +110,7 @@ const TeacherForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Especialidad</label>
+              <label className="block text-blue-700 mb-2">Especialidad</label>
               <input
                 type="text"
                 className="w-full p-2 border rounded-lg"
@@ -121,7 +121,7 @@ const TeacherForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Imagen</label>
+              <label className="block text-blue-700 mb-2">Imagen</label>
               <input
                 type="file"
                 accept="image/*"
@@ -137,7 +137,7 @@ const TeacherForm = () => {
             </div>
             
             <div className="md:col-span-2">
-              <label className="block text-gray-700 mb-2">Curriculum</label>
+              <label className="block text-blue-700 mb-2">Curriculum</label>
               <textarea
                 className="w-full p-2 border rounded-lg"
                 rows="4"
@@ -159,7 +159,7 @@ const TeacherForm = () => {
             <button
               type="submit"
               disabled={loading}
-              className="px-4 py-2 bg-violet-600 text-white rounded-lg hover:bg-violet-700 disabled:opacity-50"
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
             >
               {loading ? 'Guardando...' : 'Guardar'}
             </button>
