@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+;
 
 const ActivitiesList = ({ activities, loading, title = "Próximas Actividades", description = "", showAll = false }) => {
   if (loading) return <div className="text-center py-8">Cargando actividades...</div>;
@@ -14,11 +15,13 @@ const ActivitiesList = ({ activities, loading, title = "Próximas Actividades", 
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <img src="https://caminantes.cl/caminantes.png" alt="Actividades" className="w-16 h-16 mx-auto mb-4" />
         {displayedActivities.map((activity) => (
           <div key={activity.CODACTIVIDAD} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             {activity.image && (
               <img 
-                src={`/uploads/${activity.image}`} 
+                src={`./${activity.image}`} 
                 alt={activity.NOMACTIVIDAD} 
                 className="w-full h-48 object-cover"
               />

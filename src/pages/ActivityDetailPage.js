@@ -39,7 +39,7 @@ const ActivityDetailPage = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           {activity.image && (
             <img 
-              src={`/uploads/${activity.image}`} 
+              src={`./uploads/actividades/${activity.image}`} 
               alt={activity.NOMACTIVIDAD} 
               className="w-full h-64 object-cover"
             />
