@@ -68,14 +68,14 @@ const AdminDocentes = () => {
             setCurrentDocente(null);
             setShowForm(true);
           }}
-          className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         >
           Nuevo Docente
         </button>
       </div>
       
       {showForm && (
-        <div className="bg-purple-100 p-6 rounded-lg shadow-md mb-6">
+        <div className="bg-blue-100 p-6 rounded-lg shadow-md mb-6">
           <DocenteForm 
             docente={currentDocente}
             onSubmit={handleSubmit}
@@ -93,9 +93,9 @@ const AdminDocentes = () => {
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-purple-100">
+          <table className="min-w-full bg-blue-100">
             <thead>
-              <tr className="bg-gray-200 text-gray-700">
+              <tr className="bg-gray-200 text-blue-700">
                 <th className="py-3 px-4 text-left">Nombre</th>
                 <th className="py-3 px-4 text-left">Especialidad</th>
                 <th className="py-3 px-4 text-left">Email</th>
@@ -104,7 +104,7 @@ const AdminDocentes = () => {
             </thead>
             <tbody className="divide-y divide-gray-200">
               {docentes.map((docente,index) => (
-                <tr key={docente.CODDOCENTE || `docente-${index}`} className="hover:bg-purple-600">
+                <tr key={docente.CODDOCENTE || `docente-${index}`} className="hover:bg-blue-600">
                   <td className="py-3 px-4">{docente.NOMDOCENTE}</td>
                   <td className="py-3 px-4">{docente.ESPECIALIDAD}</td>
                   <td className="py-3 px-4">{docente.EMAIL}</td>

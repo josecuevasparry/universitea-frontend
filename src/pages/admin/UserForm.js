@@ -57,14 +57,14 @@ const UserForm = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-violet-800 mb-8">
+        <h1 className="text-3xl font-bold text-blue-800 mb-8">
           {id ? 'Editar Usuario' : 'Nuevo Usuario'}
         </h1>
         
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-gray-700 mb-2">Nombre</label>
+              <label className="block text-blue-700 mb-2">Nombre</label>
               <input
                 type="text"
                 className="w-full p-2 border rounded-lg"
@@ -75,7 +75,7 @@ const UserForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Email</label>
+              <label className="block text-blue-700 mb-2">Email</label>
               <input
                 type="email"
                 className="w-full p-2 border rounded-lg"
@@ -86,7 +86,7 @@ const UserForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Contraseña</label>
+              <label className="block text-blue-700 mb-2">Contraseña</label>
               <input
                 type="password"
                 className="w-full p-2 border rounded-lg"
@@ -94,11 +94,11 @@ const UserForm = () => {
                 onChange={(e) => setFormData({...formData, password: e.target.value})}
                 required={!id}
               />
-              {id && <p className="text-sm text-gray-500 mt-1">Dejar en blanco para mantener la contraseña actual</p>}
+              {id && <p className="text-md text-blue-500 mt-1">Dejar en blanco para mantener la contraseña actual</p>}
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Teléfono</label>
+              <label className="block text-blue-700 mb-2">Teléfono</label>
               <input
                 type="tel"
                 className="w-full p-2 border rounded-lg"
@@ -109,7 +109,7 @@ const UserForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Rol</label>
+              <label className="block text-blue-700 mb-2">Rol</label>
               <select
                 className="w-full p-2 border rounded-lg"
                 value={formData.role}
@@ -152,7 +152,7 @@ const UserForm = () => {
             <button
               type="submit"
               disabled={loading}
-              className="px-4 py-2 bg-violet-600 text-white rounded-lg hover:bg-violet-700 disabled:opacity-50"
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
             >
               {loading ? 'Guardando...' : 'Guardar'}
             </button>

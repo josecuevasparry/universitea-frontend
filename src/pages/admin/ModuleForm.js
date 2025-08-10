@@ -82,14 +82,14 @@ const ModuleForm = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-violet-800 mb-8">
+        <h1 className="text-3xl font-bold text-blue-800 mb-8">
           {id ? 'Editar Módulo' : 'Nuevo Módulo'}
         </h1>
         
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div className="md:col-span-2">
-              <label className="block text-gray-700 mb-2">Nombre</label>
+              <label className="block text-blue-700 mb-2">Nombre</label>
               <input
                 type="text"
                 className="w-full p-2 border rounded-lg"
@@ -100,7 +100,7 @@ const ModuleForm = () => {
             </div>
             
             <div className="md:col-span-2">
-              <label className="block text-gray-700 mb-2">Contenidos</label>
+              <label className="block text-blue-700 mb-2">Contenidos</label>
               <textarea
                 className="w-full p-2 border rounded-lg"
                 rows="6"
@@ -111,7 +111,7 @@ const ModuleForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Docente</label>
+              <label className="block text-blue-700 mb-2">Docente</label>
               <select
                 className="w-full p-2 border rounded-lg"
                 value={formData.CODDOCENTE}
@@ -127,7 +127,7 @@ const ModuleForm = () => {
             </div>
             
             <div>
-              <label className="block text-gray-700 mb-2">Imagen</label>
+              <label className="block text-blue-700 mb-2">Imagen</label>
               <input
                 type="file"
                 accept="image/*"
@@ -143,7 +143,7 @@ const ModuleForm = () => {
             </div>
             
             <div className="md:col-span-2">
-              <label className="block text-gray-700 mb-2">Actividades Relacionadas</label>
+              <label className="block text-blue-700 mb-2">Actividades Relacionadas</label>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                 {activities.map(activity => (
                   <label key={activity.CODACTIVIDAD} className="flex items-center space-x-2">
@@ -170,7 +170,7 @@ const ModuleForm = () => {
             <button
               type="submit"
               disabled={loading}
-              className="px-4 py-2 bg-violet-600 text-white rounded-lg hover:bg-violet-700 disabled:opacity-50"
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
             >
               {loading ? 'Guardando...' : 'Guardar'}
             </button>

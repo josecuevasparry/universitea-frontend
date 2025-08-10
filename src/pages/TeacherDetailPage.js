@@ -40,7 +40,7 @@ const TeacherDetailPage = () => {
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 rounded-md shadow-md">
         <div className="mb-6">
-          <Link to="/docentes" className="text-violet-600 hover:underline">
+          <Link to="/docentes" className="text-blue-600 hover:underline">
             &larr; Volver a docentes
           </Link>
         </div>
@@ -48,42 +48,40 @@ const TeacherDetailPage = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="md:flex">
             <div className="md:w-1/3 p-6">
-              {teacher.image && (
                 <img 
-                  src={`/uploads/${teacher.image}`} 
+                  src={`https://caminantes.cl/centro/images/guia/${teacher.CODDOCENTE}.jpg`} 
                   alt={teacher.NOMDOCENTE} 
                   className="w-full rounded-lg shadow-md"
                 />
-              )}
               <div className="mt-4">
-                <h2 className="text-xl font-bold text-violet-700">Información de contacto</h2>
-                <p className="text-gray-600 mt-2">{teacher.EMAIL}</p>
-                <p className="text-gray-600">{teacher.TELEFONO}</p>
-                <p className="text-gray-600">RUT: {teacher.RUTDOCENTE}</p>
+                <h2 className="text-xl font-bold text-blue-700">Información de contacto</h2>
+                <p className="text-blue-600 mt-2">{teacher.EMAIL}</p>
+                <p className="text-blue-600">{teacher.TELEFONO}</p>
+                <p className="text-blue-600">RUT: {teacher.RUTDOCENTE}</p>
               </div>
             </div>
             
             <div className="md:w-2/3 p-6">
-              <h1 className="text-3xl font-bold text-violet-800 mb-2">{teacher.NOMDOCENTE}</h1>
-              <p className="text-xl text-gray-600 mb-4">{teacher.ESPECIALIDAD}</p>
+              <h1 className="text-3xl font-bold text-blue-800 mb-2">{teacher.NOMDOCENTE}</h1>
+              <p className="text-xl text-blue-600 mb-4">{teacher.ESPECIALIDAD}</p>
               
               <div className="mb-6">
-                <h2 className="text-xl font-semibold text-violet-700 mb-2">Currículum</h2>
-                <p className="text-gray-700 whitespace-pre-line">{teacher.CVDOCENTE}</p>
+                <h2 className="text-xl font-semibold text-blue-700 mb-2">Currículum</h2>
+                <p className="text-blue-700 whitespace-pre-line">{teacher.CVDOCENTE}</p>
               </div>
               
               {modules.length > 0 && (
                 <div>
-                  <h2 className="text-xl font-semibold text-violet-700 mb-4">Módulos que imparte</h2>
+                  <h2 className="text-xl font-semibold text-blue-700 mb-4">Módulos que imparte</h2>
                   <div className="space-y-4">
                     {modules.map((module) => (
                       <Link 
                         key={module.CODMODULO} 
                         to={`/modulos/${module.CODMODULO}`}
-                        className="block bg-purple-50 p-4 rounded-lg hover:bg-purple-100 transition-colors"
+                        className="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-colors"
                       >
-                        <h3 className="font-bold text-violet-700">{module.NOMMODULO}</h3>
-                        <p className="text-gray-600 line-clamp-2">{module.CONTENIDOS}</p>
+                        <h3 className="font-bold text-blue-700">{module.NOMMODULO}</h3>
+                        <p className="text-blue-600 line-clamp-2">{module.CONTENIDOS}</p>
                       </Link>
                     ))}
                   </div>

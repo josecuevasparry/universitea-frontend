@@ -27,17 +27,17 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-purple-600 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-purple-100 p-8 rounded-lg shadow">
+    <div className="min-h-screen flex items-center justify-center bg-blue-600 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8 bg-blue-100 p-8 rounded-lg shadow">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-blue-900">
             Crear una cuenta
           </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="name" className="block text-md font-medium text-blue-700">
                 Nombre completo
               </label>
               <input
@@ -51,7 +51,7 @@ const SignupPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-md font-medium text-blue-700">
                 Email
               </label>
               <input
@@ -66,7 +66,7 @@ const SignupPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="password" className="block text-md font-medium text-blue-700">
                 Contraseña
               </label>
               <input
@@ -81,7 +81,7 @@ const SignupPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="mobile" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="mobile" className="block text-md font-medium text-blue-700">
                 Teléfono
               </label>
               <input
@@ -100,13 +100,13 @@ const SignupPage = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-md font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
             >
               {loading ? 'Registrando...' : 'Registrarse'}
             </button>
           </div>
         </form>
-        <div className="text-center text-sm">
+        <div className="text-center text-md">
           <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
             ¿Ya tienes una cuenta? Inicia sesión
           </Link>

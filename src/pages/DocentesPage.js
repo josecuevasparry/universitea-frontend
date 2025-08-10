@@ -32,17 +32,15 @@ const DocentesPage = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {docentes.map(docente => (
-            <div key={docente.CODDOCENTE} className="bg-purple-100 rounded-lg shadow-md overflow-hidden">
-              {docente.image && (
+            <div key={docente.CODDOCENTE} className="bg-blue-100 rounded-lg shadow-md overflow-hidden">
                 <img 
-                  src={docente.image} 
+                  src={"https://caminantes.cl/centro/images/guia/"+docente.CODDOCENTE+".jpg"} 
                   alt={docente.NOMDOCENTE} 
                   className="w-full h-48 object-cover"
                 />
-              )}
               <div className="p-4">
                 <h2 className="text-xl font-semibold mb-2">{docente.NOMDOCENTE}</h2>
-                <p className="text-gray-600 mb-2">{docente.ESPECIALIDAD}</p>
+                <p className="text-blue-600 mb-2">{docente.ESPECIALIDAD}</p>
                 <Link 
                   to={`/docentes/${docente.CODDOCENTE}`}
                   className="text-blue-600 hover:text-blue-800"
